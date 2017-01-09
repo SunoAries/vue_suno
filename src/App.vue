@@ -1,5 +1,7 @@
 <template>
   <div id="app">
+    <p>两个四川人在fb上讲粤语</p>
+    <img src="./assets/1.png" alt="">
     <hello></hello>
   </div>
 </template>
