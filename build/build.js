@@ -21,9 +21,9 @@ var spinner = ora('building for production...')
 spinner.start()
 
 var assetsPath = path.join(config.build.assetsRoot, config.build.assetsSubDirectory)
-rm('-rf', assetsPath)
-mkdir('-p', assetsPath)
-cp('-R', 'static/*', assetsPath)
+rm('-rf', assetsPath)    //清空目录 
+mkdir('-p', assetsPath)  //新建文件夹
+cp('-R', 'static/*', assetsPath) //复制静态资源  -r是深度复制
 
 webpack(webpackConfig, function (err, stats) {
   spinner.stop()
