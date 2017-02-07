@@ -9,7 +9,7 @@ export default {
   name: 'hello',
   data () {
     return {
-      msg: 'Welcome to XIAOCHENGLIN\'s Vue.js App /n  still love xuan'
+      msg: 'Welcome to XIAOCHENGLIN\'s Vue.js App /n  still love xuan  tt'
     }
   }
 }
