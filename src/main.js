@@ -17,8 +17,22 @@ Vue.use(VueRouter)
 
 // 1. Define route components.
 // These can be imported from other files
-const Foo = { template: '<div>foo</div>' }
-const Bar = { template: '<div>bar</div>' }
+const Foo = {template: '<div>foo</div>'}
+const Bar =  {
+  template: `
+    <div class="user">
+      <h2>User {{ $route.params.id }}</h2>
+      <router-view></router-view>
+    </div>
+  `
+}
+const User = {
+  template: '<div>User {{ $route.params.id }}</div>'
+}
+
+const UserHome = { template: '<div>Home</div>' }
+const UserProfile = { template: '<div>Profile</div>' }
+const UserPosts = { template: '<div>Posts</div>' }
 
 // 2. Define some routes
 // Each route should map to a component. The "component" can
@@ -26,16 +40,35 @@ const Bar = { template: '<div>bar</div>' }
 // Vue.extend(), or just a component options object.
 // We'll talk about nested routes later.
 const routes = [
-  { path: '/foo', component: Foo },
-  { path: '/bar', component: Bar },
-  { path: '/app', component: App }
+  {path: '/foo', component: Foo},
+  {
+    path: '/bar/:id',
+    component: Bar,
+    children: [
+      { path: '', component: UserHome },
+      {
+        // 当 /user/:id/profile 匹配成功，
+        // UserProfile 会被渲染在 User 的 <router-view> 中
+        path: 'profile',
+        component: UserProfile
+      },
+      {
+        // 当 /user/:id/posts 匹配成功
+        // UserPosts 会被渲染在 User 的 <router-view> 中
+        path: 'posts',
+        component: UserPosts
+      }
+    ]},
+  {path: '/app', component: App},
+  {path: '/user/:id', component: User }
 ]
 
 // 3. Create the router instance and pass the `routes` option
 // You can pass in additional options here, but let's
 // keep it simple for now.
 const router = new VueRouter({
-  routes
+  routes,
+  mode: 'history'
 })
 
 // 4. Create and mount the root instance.
@@ -100,14 +133,16 @@ frame.append("g")
 
 d3.selectAll("input[name=reference]")
   .data([radius * 5, Infinity, -radius])
-  .on("change", function(radius1) {
+  .on("change", function (radius1) {
     var radius0 = frame.datum().radius, angle = (Date.now() - start) * speed;
     frame.datum({radius: radius1});
     svg.attr("transform", "rotate(" + (offset += angle / radius0 - angle / radius1) + ")");
   });
 
 d3.selectAll("input[name=speed]")
-  .on("change", function() { speed = +this.value; });
+  .on("change", function () {
+    speed = +this.value;
+  });
 
 function gear(d) {
   var n = d.teeth,
@@ -130,9 +165,11 @@ function gear(d) {
   return path.join("");
 }
 
-d3.timer(function() {
+d3.timer(function () {
   var angle = (Date.now() - start) * speed,
-    transform = function(d) { return "rotate(" + angle / d.radius + ")"; };
+    transform = function (d) {
+      return "rotate(" + angle / d.radius + ")";
+    };
   frame.selectAll("path").attr("transform", transform);
   frame.attr("transform", transform); // frame of reference
 });
