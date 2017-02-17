@@ -3,13 +3,48 @@
 import Vue from 'vue'
 import App from './App'
 import * as d3 from "d3";
+import VueRouter from 'vue-router';
+Vue.use(VueRouter)
 
 /* eslint-disable no-new */
-new Vue({
-  el: '#app',
-  template: '<App/>',
-  components: { App }
+// new Vue({
+//   el: '#app',
+//   router:router,
+//   template: '<App/>',
+//   components: { App }
+// }).$mount('#app')
+// 0. If using a module system, call Vue.use(VueRouter)
+
+// 1. Define route components.
+// These can be imported from other files
+const Foo = { template: '<div>foo</div>' }
+const Bar = { template: '<div>bar</div>' }
+
+// 2. Define some routes
+// Each route should map to a component. The "component" can
+// either be an actual component constructor created via
+// Vue.extend(), or just a component options object.
+// We'll talk about nested routes later.
+const routes = [
+  { path: '/foo', component: Foo },
+  { path: '/bar', component: Bar },
+  { path: '/app', component: App }
+]
+
+// 3. Create the router instance and pass the `routes` option
+// You can pass in additional options here, but let's
+// keep it simple for now.
+const router = new VueRouter({
+  routes
 })
+
+// 4. Create and mount the root instance.
+// Make sure to inject the router with the router option to make the
+// whole app router-aware.
+const app = new Vue({
+  router
+}).$mount('#app')
+
 var width = 960,
   height = 500,
   radius = 80,
