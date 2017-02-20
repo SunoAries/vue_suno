@@ -78,6 +78,10 @@ const app = new Vue({
   router
 }).$mount('#app')
 
+/**
+ *  下面是生拉硬拽 生成的d3图形，简直醉了。
+ * @type {number}
+ */
 var width = 960,
   height = 500,
   radius = 80,
