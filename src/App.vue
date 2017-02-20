@@ -23,7 +23,7 @@
       Gear
     },
     data (){
-      ret
+      return {
         items: [
           {count: '1'},
           {count: '1'}
