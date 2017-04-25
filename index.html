@@ -4,34 +4,8 @@
     <meta charset="utf-8">
     <title>vue_suno</title>
   </head>
-  <style>
-    p{
-      text-align: center;
-    }
-    img{
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-    }
-  </style>
   <body>
     <div id="app">
-      <h1>Hello App!</h1>
-      <p>
-        <!-- 使用 router-link 组件来导航. -->
-        <!-- 通过传入 `to` 属性指定链接. -->
-        <!-- <router-link> 默认会被渲染成一个 `<a>` 标签 -->
-        <router-link to="/foo">Go to Foo 直接模板</router-link>
-      <p>
-        <p>嵌套路由</p>
-        <router-link to="/bar/foo">/user/foo</router-link>
-        <router-link to="/bar/foo/profile">/user/foo/profile</router-link>
-        <router-link to="/bar/foo/posts">/user/foo/posts</router-link>
-      </p>
-        <router-link to="/App">Go to App 引入的</router-link>
-        <router-link to="/user/1111">动态路由1</router-link>
-        <router-link to="/user/2222">动态路由2</router-link>
-      </p>
       <router-view></router-view>
     </div>
     <!-- built files will be auto injected -->

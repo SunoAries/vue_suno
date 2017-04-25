@@ -1,46 +1,23 @@
 <template>
-  <div id="app">
-    <hello></hello>
-    <gear></gear>
-    <input type="text" v-model="thingsss" placeholder="shit on you">
-    <button @click="add(thingsss)">add</button>
-    <button @click="minus()">delete</button>
-    <ul>
-      <li v-for="shit in items">{{shit.count}}</li>
-    </ul>
+  <div>
+    <h1>Hello App!</h1>
+    <router-link to="/circle">Go to circle</router-link>
+    <router-link to="/gear">gear</router-link>
+    <router-link to="/hello">hello</router-link>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-  import Hello from './components/Hello'
-  import Gear from './components/Gear'
-
-
   export default {
     name: 'app',
     components: {
-      Hello,
-      Gear
     },
     data (){
       return {
-        items: [
-          {count: '1'},
-          {count: '1'}
-        ],
-        thingsss:''
+
       }
     },
-    methods: {
-      add: function (i) {
-        if(!i)return;
-        this.items.push({count:i});
-        this.thingsss=''
-      },
-      minus:function () {
-        this.items.pop()
-      }
-    }
   }
 </script>
 
