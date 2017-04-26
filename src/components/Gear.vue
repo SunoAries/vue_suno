@@ -1,23 +1,22 @@
 <template>
   <div class="gear">
-<form>
-    <input type="radio" name="reference" id="ref-annulus">
-    <label for="ref-annulus">Annulus</label><br>
-    <input type="radio" name="reference" id="ref-planet" checked>
-    <label for="ref-planet">Planets</label><br>
-    <input type="radio" name="reference" id="ref-sun">
-    <label for="ref-sun">Sun</label>
-</form>
-  </div>
+    <circle11>
+      <div slot="for-u">caonima</div>
+    </circle11>
+      </div>
 </template>
 
 <script>
+  import circle11 from './Circle'
 export default {
   name: 'gear',
   data () {
     return {
       msg: 'Welcome to Your Vue.js App'
     }
+  },
+  components:{
+      circle11
   }
 }
 </script>

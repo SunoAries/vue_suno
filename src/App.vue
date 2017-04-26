@@ -4,6 +4,9 @@
     <router-link to="/circle">Go to circle</router-link>
     <router-link to="/gear">gear</router-link>
     <router-link to="/hello">hello</router-link>
+    <transition name="router-fade" mode="out-in">
+
+    </transition>
     <router-view></router-view>
   </div>
 </template>
@@ -22,21 +25,13 @@
 </script>
 
 <style>
-  #app {
-    font-family: 'Avenir', Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    color: #2c3e50;
-    margin-top: 60px;
+  @import './style/common';
+  .fade-enter-active, .fade-leave-active {
+    transition: opacity .5s
   }
-
-  body {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    width: 960px;
-    height: 500px;
-    position: relative;
+  .fade-enter, .fade-leave-active {
+    opacity: 0
   }
-
   form {
     top: 1em;
     left: 1em;

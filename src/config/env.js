@@ -14,7 +14,7 @@ if(process.env.NODE_ENV == 'development'){
   baseUrl = 'http://eg.com'
 }
 
-export  default {
+export {
   baseUrl,
   routerMode,
   imgBaseUrl

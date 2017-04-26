@@ -1,5 +1,15 @@
 <template>
-  <div id="circle"></div>
+  <div id="circle">
+    <form>
+      <input type="radio" name="reference" id="ref-annulus">
+      <label for="ref-annulus">Annulus</label><br>
+      <input type="radio" name="reference" id="ref-planet" checked>
+      <label for="ref-planet">Planets</label><br>
+      <input type="radio" name="reference" id="ref-sun">
+      <label for="ref-sun">Sun</label>
+    </form>
+    <slot name="for-u"></slot>
+  </div>
 </template>
 <script>
   import * as d3 from "d3";
