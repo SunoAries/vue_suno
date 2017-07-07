@@ -8,7 +8,7 @@
       <input type="radio" name="reference" id="ref-sun">
       <label for="ref-sun">Sun</label>
     </form>
-    <slot name="for-u"></slot>
+    <router-view></router-view>
   </div>
 </template>
 <script>
@@ -119,9 +119,9 @@
 </script>
 <style>
   #circle{
-    position: fixed;
-    right: 1rem;
-    top:1rem;
+    /*position: fixed;*/
+    /*right: 1rem;*/
+    /*top:1rem;*/
   }
 </style>
 

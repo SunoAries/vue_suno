@@ -1,13 +1,11 @@
 <template>
   <div class="gear">
-    <circle11>
-      <div slot="for-u">caonima</div>
-    </circle11>
-      </div>
+      友链？？
+  </div>
 </template>
 
 <script>
-  import circle11 from './Circle'
+
 export default {
   name: 'gear',
   data () {
@@ -16,7 +14,7 @@ export default {
     }
   },
   components:{
-      circle11
+
   }
 }
 </script>

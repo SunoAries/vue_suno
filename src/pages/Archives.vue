@@ -15,7 +15,7 @@ export default {
   name: 'hello',
   data () {
     return {
-      msg: 'Welcome to XIAOCHENGLIN\'s Vue.js App \n  still in love with xuan  tt',
+      msg: 'Welcome to XIAOCHENGLIN\'s Vue.js App',
       items: [
         {count: '1'},
         {count: '1'}

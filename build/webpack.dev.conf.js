@@ -32,5 +32,6 @@ module.exports = merge(baseWebpackConfig, {
       inject: true
     }),
     new FriendlyErrors()
-  ]
+  ],
+  watch:true
 })
