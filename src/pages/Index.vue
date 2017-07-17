@@ -2,13 +2,13 @@
   <div id="wrapper">
     <my-header></my-header>
     <div class="suno-content">
-      <router-view class="content"></router-view>
+      <spinner v-show="isLoading"></spinner>
+      <router-view class="content" v-show="!isLoading"></router-view>
       <my-footer></my-footer>
     </div>
-    <spinner v-show="isLoading"></spinner>
-    <!--<transition name="huojian" enter-active-class="animated bounceIn" leave-active-class="animated fadeOut">-->
-    <!--<a href="#app" class="rocket" data-scroll><i class="iconfont icon-huojian" v-if="show"></i></a>-->
-    <!--</transition>-->
+    <transition name="huojian" enter-active-class="animated bounceIn" leave-active-class="animated fadeOut">
+      <a href="#app" class="rocket" data-scroll style="position: fixed;right: 0;bottom: 0;">回到最上</a>
+    </transition>
   </div>
 </template>
 
@@ -16,7 +16,7 @@
   import MyHeader         from './components/MyHeader'
   import MyFooter         from './components/MyFooter'
   import spinner          from './components/spinner'
-    import {mapState}       from 'vuex'
+  import {mapState}       from 'vuex'
 
   export default {
     data () {
@@ -46,6 +46,7 @@
 <style>
   #wrapper {
     margin: 0 auto;
+    height: 100%;
   }
   .suno-content{
     position: relative;

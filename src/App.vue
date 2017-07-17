@@ -65,7 +65,6 @@
   html,body{
     height: 100%;
     width: 100%;
-    background-color: #F5F5F5;
   }
 
 
@@ -119,10 +118,6 @@
   }
   .fade-enter, .fade-leave-active {
     opacity: 0
-  }
-  form {
-    top: 1em;
-    left: 1em;
   }
 
   path {

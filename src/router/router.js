@@ -8,10 +8,11 @@ import {routerMode} from '../config/env'
 Vue.use(VueRouter)
 
 const Index = r => require.ensure([], () => r(require('../pages/Index')), 'Index')
-const Gear = r => require.ensure([], () => r(require('../pages/Gear')), 'Gear')
+const Tags = r => require.ensure([], () => r(require('../pages/Tags')), 'Tags')
 const Archives = r => require.ensure([], () => r(require('../pages/Archives')), 'Archives')
 const Circle = r => require.ensure([], () => r(require('../pages/Circle')), 'Circle')
 const Resume = r => require.ensure([], () => r(require('../pages/Resume')), 'Resume')
+const Article = r => require.ensure([], () => r(require('../pages/Article')), 'Article')
 
 const routes = [{
   path: '/',
@@ -22,29 +23,32 @@ const routes = [{
       path: '',
       redirect: '/circle'
     },
-    //首页城市列表页
-    {
-      path: '/gear',
-      component: Gear
-    },
-    //当前选择城市页
-    {
-      path: '/archives',
-      component: Archives
-    },
     {
       path: '/circle',
       component: Circle
     },
     {
+      path: '/tags',
+      component: Tags
+    },
+    {
+      path: '/archives',
+      component: Archives
+    },
+    {
       path: '/resume',
       component: Resume
+    },
+    {
+      path: '/article',
+      component: Article,
+      name: 'article'
     }
   ]
 }]
 const router = new VueRouter({
   routes,
-  mode:routerMode  //不知道出了什么问题
+  mode: routerMode  //不知道出了什么问题
 });
 
 export default router

@@ -1,17 +1,21 @@
-/**
- * Created by 47625 on 2017/4/25.
- */
 import Vue from 'vue'
 import Vuex from 'vuex'
-import actions from './action'
-import mutations from './mutations'
+import actions from './action.js'
+import mutations from './mutations.js'
 import getters from  './getters'
 
 Vue.use(Vuex)
 
 
 const state = {
-  isLoading:false
+  isLoading:false,
+  article: {},
+  articles: [],
+  headline: {},
+  moreArticle: true,
+  loadMore: false,
+  isSaving: false,
+  noMore: false,
 };
 
 

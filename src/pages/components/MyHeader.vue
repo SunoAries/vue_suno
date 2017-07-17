@@ -4,10 +4,15 @@
       <ul class="catalog">
         <router-link to="/circle" tag="li">首页</router-link>
         <router-link to="/archives" tag="li">目录</router-link>
-        <router-link to="/gear" tag="li">友链</router-link>
+        <router-link to="/tags" tag="li">标签</router-link>
         <router-link to="/resume" tag="li">简历</router-link>
       </ul>
     </nav>
+    <div class="contact">
+      <a href="https://segmentfault.com/u/sunoaries" class="iconfont icon-iconsf-copy" target="_blank"></a>
+      <a href="https://github.com/SunoAries" class="iconfont icon-githubsquare" target="_blank"></a>
+      <a href="http://weibo.com/p/1005052373460431" class="iconfont icon-weibo" target="_blank"></a>
+    </div>
   </div>
 </template>
 
@@ -35,6 +40,7 @@
 </script>
 
 <style scoped>
+  @import '//at.alicdn.com/t/font_o0hjt9tb6ueg66r.css';
   #nav {
     position: fixed;
     left: 0;
@@ -42,9 +48,13 @@
     width: 250px;
   }
 
+  .contact {
+    background: none;
+  }
+
   .iconfont {
     font-size: 1.875rem;
-    color: #fff;
+    color: #000;
     margin-right: 0.625rem;
   }
 

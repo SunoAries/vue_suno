@@ -1,25 +1,52 @@
 <template>
-  <div id="circle">
-    <form>
-      <input type="radio" name="reference" id="ref-annulus">
-      <label for="ref-annulus">Annulus</label><br>
-      <input type="radio" name="reference" id="ref-planet" checked>
-      <label for="ref-planet">Planets</label><br>
-      <input type="radio" name="reference" id="ref-sun">
-      <label for="ref-sun">Sun</label>
-    </form>
-    <router-view></router-view>
+  <div id="index">
+    <div id="circle">
+      <form>
+        <input type="radio" name="reference" id="ref-annulus">
+        <label for="ref-annulus">Annulus</label><br>
+        <input type="radio" name="reference" id="ref-planet" checked>
+        <label for="ref-planet">Planets</label><br>
+        <input type="radio" name="reference" id="ref-sun">
+        <label for="ref-sun">Sun</label>
+      </form>
+    </div>
+
+    <section class="newBlog">
+        <div v-for="(article, index) in reducedArticles">
+          <router-link :to="{path: 'article', query: {article: '123123', index: index, page: 1}}" tag="h3" exact class="title_1">{{article.title}}</router-link>
+          <time>{{new Date(article.date).toLocaleDateString()}}</time>
+          <span class="commentNumber">{{article.comment_n}}</span>
+          <p class="content">{{article.briefContent}}</p>
+          <router-link :to="{name: 'article', params: {article: article, index: index, page: 1}}" tag="button" exact><span>Read More</span></router-link>
+        </div>
+    </section>
   </div>
 </template>
 <script>
   import * as d3 from "d3";
+  import {mapMutations, mapActions, mapGetters} from 'vuex'
   export default {
     data(){
         return {
         }
     },
+    created:function () {
+      this.set_headline({
+        content: 'Welcome to my blog',
+        animation: 'animated bounceIn'
+      })
+      this.getAllArticles({page:1,limit:10})
+    },
+    computed: {
+      ...mapGetters(['reducedArticles'])
+    },
+    methods:{
+      ...mapMutations(['set_headline']),
+      ...mapActions(['getAllArticles']),
+
+    },
     mounted(){
-      let width = 960,
+      let width = 600,
         height = 500,
         radius = 80,
         x = Math.sin(2 * Math.PI / 3),
@@ -118,10 +145,15 @@
   }
 </script>
 <style>
-  #circle{
-    /*position: fixed;*/
-    /*right: 1rem;*/
-    /*top:1rem;*/
+  #circle form{
+    float: right;
+    top: 1em;
+    right: 1em;
+  }
+  #circle svg{
+    float: right;
+    top: 1em;
+    right: 0;
   }
 </style>
 

@@ -1,12 +1,6 @@
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
-    <input type="text" v-model="thingsss" placeholder="shit on you">
-    <button @click="add(thingsss)">add</button>
-    <button @click="minus()">delete</button>
-    <ul>
-      <li v-for="shit in items">{{shit.count}}</li>
-    </ul>
+  <div id="archives">
+
   </div>
 </template>
 
