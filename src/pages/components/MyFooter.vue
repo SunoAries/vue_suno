@@ -36,7 +36,7 @@ export default {}
         text-align: center;
         line-height: 2.5rem;
         width: 100%;
-        background: rgba(55, 57, 65, 0.5);
+        background: rgba(105, 106, 110, 0.5);;
     }
     p {
         text-align: center;

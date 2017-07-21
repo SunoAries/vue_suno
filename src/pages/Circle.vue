@@ -13,7 +13,7 @@
 
     <section class="newBlog">
         <div v-for="(article, index) in reducedArticles">
-          <router-link :to="{path: 'article', query: {article: '123123', index: index, page: 1}}" tag="h3" exact class="title_1">{{article.title}}</router-link>
+          <router-link :to="{path: 'article', query: {article: article, index: index, page: 1}}" tag="h3" exact class="title_1">{{article.title}}</router-link>
           <time>{{new Date(article.date).toLocaleDateString()}}</time>
           <span class="commentNumber">{{article.comment_n}}</span>
           <p class="content">{{article.briefContent}}</p>
@@ -46,9 +46,9 @@
 
     },
     mounted(){
-      let width = 600,
-        height = 500,
-        radius = 80,
+      let width = 400,
+        height = 400,
+        radius = 60,
         x = Math.sin(2 * Math.PI / 3),
         y = Math.cos(2 * Math.PI / 3);
 
@@ -145,9 +145,12 @@
   }
 </script>
 <style>
+  #index{
+    padding: 20px;
+  }
   #circle form{
     float: right;
-    top: 1em;
+    margin-top: 150px;
     right: 1em;
   }
   #circle svg{

@@ -1,6 +1,7 @@
 <template>
   <div id="nav">
     <nav>
+      <div class="avatar"><img src="../../assets/avatar.jpg" alt=""></div>
       <ul class="catalog">
         <router-link to="/circle" tag="li">首页</router-link>
         <router-link to="/archives" tag="li">目录</router-link>
@@ -47,7 +48,19 @@
     height: 100%;
     width: 250px;
   }
-
+  .avatar{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 20px auto;
+  }
+  .avatar>img{
+    height: 150px;
+  }
+  .catalog{
+    margin: 50px 0;;
+  }
   .contact {
     background: none;
   }
