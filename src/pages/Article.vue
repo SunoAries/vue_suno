@@ -1,6 +1,7 @@
 <template>
   <div class="article">
-    {{article.content}}
+    <h1>{{article.title}}</h1>
+    <div v-html="content"></div>
   </div>
 </template>
 
@@ -27,7 +28,10 @@
       }
     },
     computed: {
-      ...mapGetters(['reducedArticles'])
+      ...mapGetters(['reducedArticles']),
+      content:function () {
+        return marked(this.article.content)
+      }
     },
     created: function () {
         debugger
@@ -41,6 +45,8 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
+.article{
+  padding: 20px;
+}
 
 </style>

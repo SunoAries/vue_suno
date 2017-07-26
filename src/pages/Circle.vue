@@ -11,13 +11,13 @@
       </form>
     </div>
 
-    <section class="newBlog">
-        <div v-for="(article, index) in reducedArticles">
-          <router-link :to="{path: 'article', query: {article: article, index: index, page: 1}}" tag="h3" exact class="title_1">{{article.title}}</router-link>
+    <section class="blog">
+        <div v-for="(article, index) in reducedArticles" class="item">
+          <router-link :to="{name: 'article', params: {article: article, index: index, page: 1}}" tag="h3" exact class="title_1">{{article.title}}</router-link>
           <time>{{new Date(article.date).toLocaleDateString()}}</time>
           <span class="commentNumber">{{article.comment_n}}</span>
           <p class="content">{{article.briefContent}}</p>
-          <router-link :to="{name: 'article', params: {article: article, index: index, page: 1}}" tag="button" exact><span>Read More</span></router-link>
+          <div class="more"><router-link :to="{name: 'article', params: {article: article, index: index, page: 1}}" tag="button" exact><span>Read More</span></router-link></div>
         </div>
     </section>
   </div>
@@ -157,6 +157,13 @@
     float: right;
     top: 1em;
     right: 0;
+  }
+  .blog{
+    padding-right: 500px;
+    padding-left: 50px;
+  }
+  .item>.more{
+    text-align: right;
   }
 </style>
 

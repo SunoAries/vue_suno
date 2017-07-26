@@ -2,7 +2,7 @@ export  default [
   {
     "title" : "啦啦啦",
     "date" : "2017-04-03T02:46:54.000Z",
-    "content" : "`啦啦啦啦啦`",
+    "content" : "",
     "isPublish" : false,
     "comment_n" : 0,
     "tags" : ["随笔"]
