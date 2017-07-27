@@ -24,7 +24,7 @@
 </template>
 <script>
   import * as d3 from "d3";
-  import {mapMutations, mapActions, mapGetters} from 'vuex'
+  import {mapMutations, mapGetters} from 'vuex'
   export default {
     data(){
         return {
@@ -35,15 +35,12 @@
         content: 'Welcome to my blog',
         animation: 'animated bounceIn'
       })
-      this.getAllArticles({page:1,limit:10})
     },
     computed: {
       ...mapGetters(['reducedArticles'])
     },
     methods:{
       ...mapMutations(['set_headline']),
-      ...mapActions(['getAllArticles']),
-
     },
     mounted(){
       let width = 400,

@@ -5,6 +5,7 @@
 </template>
 
 <script>
+  import { mapActions} from 'vuex'
   export default {
     name: 'app',
     components: {
@@ -14,6 +15,12 @@
 
       }
     },
+    methods:{
+      ...mapActions(['getAllArticles']),
+    },
+    created:function () {
+      this.getAllArticles({page:1,limit:10})
+    }
   }
 </script>
 

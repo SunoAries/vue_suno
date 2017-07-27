@@ -10,7 +10,7 @@ export  default [
   {
     "title" : "hello world",
     "date" : "2017-04-25T06:01:29.000Z",
-    "content" : "### 你好，世界。\n\nHi, my name is Haodong Xu. Welcome to my blog. Nice to meet you! Hi, my name is Haodong Xu. Welcome to my blog. Nice to meet you! Hi, my name is Haodong Xu. Welcome to my blog. Nice to meet you! Hi, my name is Haodong Xu. Welcome to my blog. Nice to meet you! Hi, my name is Haodong Xu. Welcome to my blog. Nice to meet you! Hi, my name is Haodong Xu. Welcome to my blog. Nice to meet you! Hi, my name is Haodong Xu. Welcome to my blog. Nice to meet you! Hi, my name is Haodong Xu. Welcome to my blog. Nice to meet you! Hi, my name is Haodong Xu. Welcome to my blog. Nice to meet you! \n\n```html\n<p> hello world </p>\n```\n\n```js\nconsole.log('hello world')\nalert('hello world')\n```",
+    "content" : "### 你好，世界。\n\nHi,   Welcome to my blog. Nice to meet you! \n\n```html\n<p> hello world </p>\n```\n\n```js\nconsole.log('hello world')\nalert('hello world')\n```",
     "isPublish" : true,
     "comment_n" : 0,
     "tags" : [
