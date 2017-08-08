@@ -1,16 +1,14 @@
 <template>
   <div class="tagsWrap">
     <div v-if="!argument">
-      <span v-for="(value,key) in tagSort" @click="argument=key" class="tag">
+      <span v-for="(value,key) in tagSort" @click="tagsHandler(key)" class="tag">
           {{key}}({{value.length}})
       </span>
-      <hr>
-      <router-link v-for="(value,key) in tagSort" :to="{path:'/tags',query:{tag:key}}"  tag="span" class="tag">{{key}}({{value.length}}) </router-link>
     </div>
     <div v-else>
-      <span v-for="value in tagSort[argument]" class="tags">
+      <div v-for="value in tagSort[argument]" class="tags">
         <router-link :to="{name: 'article', params: {article: value}}" tag="a" exact>{{value.title}}</router-link>
-      </span>
+      </div>
     </div>
   </div>
 </template>
@@ -20,14 +18,39 @@ import {mapGetters} from 'vuex'
 export default {
   data () {
     return {
-      argument:this.$route.query.tag
     }
   },
   computed:{
-    ...mapGetters(['tagSort'])
+    ...mapGetters(['tagSort']),
+    argument:function () {
+      return this.$route.query.tag
+    }
   },
   components:{
 
+  },
+  methods:{
+    tagsHandler:function (key) {
+      this.$router.push({ path: 'tags', query: { tag:key }})
+    }
+  },
+  beforeRouteEnter (to, from, next) {
+    next()
+    // 在渲染该组件的对应路由被 confirm 前调用
+    // 不！能！获取组件实例 `this`
+    // 因为当钩子执行前，组件实例还没被创建
+  },
+  beforeRouteUpdate (to, from, next) {
+    next()
+    // 在当前路由改变，但是该组件被复用时调用
+    // 举例来说，对于一个带有动态参数的路径 /foo/:id，在 /foo/1 和 /foo/2 之间跳转的时候，
+    // 由于会渲染同样的 Foo 组件，因此组件实例会被复用。而这个钩子就会在这个情况下被调用。
+    // 可以访问组件实例 `this`
+  },
+  beforeRouteLeave (to, from, next) {
+    next()
+    // 导航离开该组件的对应路由时调用
+    // 可以访问组件实例 `this`
   }
 }
 </script>
