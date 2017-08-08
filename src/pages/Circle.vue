@@ -14,8 +14,8 @@
     <section class="blog">
         <div v-for="(article, index) in reducedArticles" class="item">
           <router-link :to="{name: 'article', params: {article: article, index: index, page: 1}}" tag="h3" exact class="title_1">{{article.title}}</router-link>
-          <time>{{new Date(article.date).toLocaleDateString()}}</time>
-          <span class="commentNumber">{{article.comment_n}}</span>
+          <time> {{new Date(article.date).toLocaleDateString()}}</time>
+          <span class="commentNumber"> 评论:{{article.comment_n}}</span>
           <p class="content">{{article.briefContent}}</p>
           <div class="more"><router-link :to="{name: 'article', params: {article: article, index: index, page: 1}}" tag="button" exact><span>Read More</span></router-link></div>
         </div>
@@ -159,8 +159,14 @@
     padding-right: 500px;
     padding-left: 50px;
   }
+  .item h3{
+    cursor: pointer;
+  }
   .item>.more{
     text-align: right;
+  }
+  .more button{
+    cursor: pointer;
   }
 </style>
 

@@ -104,4 +104,7 @@
     cursor: pointer;
     color: #fff;
   }
+  .catalog li{
+    cursor: pointer;
+  }
 </style>

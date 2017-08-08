@@ -3,9 +3,9 @@
     <h2>{{headline.content}}</h2>
     <template v-for="item in reducedArticles">
           <div class="article">
-            <h3>{{item.title}}</h3>
-            <span>{{new Date(item.date).toLocaleDateString()}}</span><span>tags：</span>
-            <router-link v-for="tag in item.tags" :to="{path:'/tags',query:{tag:tag}}"  tag="span">{{tag}} </router-link>
+            <router-link :to="{name: 'article', params: {article: item}}" tag="h3" exact class="title_1">{{item.title}}</router-link>
+            <span>{{new Date(item.date).toLocaleDateString()}}</span><span> tags：</span>
+            <router-link v-for="tag in item.tags" :to="{path:'/tags',query:{tag:tag}}"  tag="span" class="tag">{{tag}} </router-link>
           </div>
     </template>
   </div>
@@ -40,5 +40,11 @@ h2{
 }
   .article{
     margin: 10px;
+  }
+  .article .tag{
+    cursor: pointer;
+  }
+  .title_1{
+    cursor: pointer;
   }
 </style>

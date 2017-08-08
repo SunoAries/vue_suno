@@ -4,6 +4,8 @@
       <span v-for="(value,key) in tagSort" @click="argument=key" class="tag">
           {{key}}({{value.length}})
       </span>
+      <hr>
+      <router-link v-for="(value,key) in tagSort" :to="{path:'/tags',query:{tag:key}}"  tag="span" class="tag">{{key}}({{value.length}}) </router-link>
     </div>
     <div v-else>
       <span v-for="value in tagSort[argument]" class="tags">
@@ -36,6 +38,7 @@ export default {
   padding: 10px;
 }
 .tag{
+  cursor: pointer;
   display: inline-block;
   font-size: 14px;
   padding: 0 15px;
