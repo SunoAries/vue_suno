@@ -1,6 +1,6 @@
 # vue_suno
 
-> A Vue.js project
+> 太旧了，样式也不好看。当时还想模仿某种写的
 
 ## Build Setup
 
@@ -14,5 +14,3 @@ npm run dev
 # build for production with minification
 npm run build
 ```
-
-For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
