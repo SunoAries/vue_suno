@@ -17,7 +17,7 @@ var webpackConfig = merge(baseWebpackConfig, {
     path: config.build.assetsRoot,
     filename: utils.assetsPath('js/[name].[chunkhash].js'),
     chunkFilename: utils.assetsPath('js/[id].[chunkhash].js'),
-    publicPath: '/vue_suno'
+    publicPath: '/vue_suno/'
   },
   vue: {
     loaders: utils.cssLoaders({
