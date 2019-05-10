@@ -5,7 +5,7 @@
  */
 
 let baseUrl;
-let routerMode = 'history' ;
+let routerMode = 'hash' ;
 let imgBaseUrl = 'http://eg.com' ;
 
 if(process.env.NODE_ENV == 'development'){
